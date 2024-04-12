@@ -3,13 +3,22 @@ spring:
     url: jdbc:mysql://localhost:3306/cloud_vendor?useSSL=false
     username: root
     password: password
-    driver-class-name: org.h2.Driver
 
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-    show-sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
 
   #JPA Settings
-  jpa.hibernate.ddl-auto: create-drop
+  jpa.hibernate.ddl-auto: create
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, beans, metrics"
+      base-path: "/management-dashboard"
+
+  endpoint:
+    health:
+      show-details: always
