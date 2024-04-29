@@ -84,7 +84,7 @@ class CloudVendorServiceImplTest {
 		mock(CloudVendorRepository.class);
 
 		when(cloudVendorRepository.findAll()).thenReturn(new ArrayList<>(Collections.singleton(cloudVendor)));
-		assertThat(cloudVendorService.getAllCloudVendors().get(0).getVendorPhoneNumbr()).isEqualTo(cloudVendor.getVendorPhoneNumbr());
+		assertThat(cloudVendorService.getAllCloudVendors().get(0).getVendorPhoneNumber()).isEqualTo(cloudVendor.getVendorPhoneNumber());
 	}
 
 	@Test

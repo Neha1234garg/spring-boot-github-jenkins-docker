@@ -1,27 +1,35 @@
 package com.neha.springbootgithubjenkinsdocker.model;
 
+import com.neha.springbootgithubjenkinsdocker.model.Rating;
+import java.util.ArrayList;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 
 @Entity
 @Table(name="cloud_vendor_info")
 public class CloudVendor {
 	@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String vendorId;
 	private String vendorName;
 	private String vendorAddress;
-	private String vendorPhoneNumbr;
+	private String vendorPhoneNumber;
+	@Transient
+	private List<Rating> rating = new ArrayList<>();
 
 	public CloudVendor() {
 	}
 
-	public CloudVendor(String vendorId, String vendorName, String vendorAddress, String vendorPhoneNumbr) {
+	public CloudVendor(String vendorId, String vendorName, String vendorAddress, String vendorPhoneNumber) {
 		this.vendorId = vendorId;
 		this.vendorName = vendorName;
 		this.vendorAddress = vendorAddress;
-		this.vendorPhoneNumbr = vendorPhoneNumbr;
+		this.vendorPhoneNumber = vendorPhoneNumber;
 	}
 
 	public String getVendorId() {
@@ -48,11 +56,19 @@ public class CloudVendor {
 		this.vendorAddress = vendorAddress;
 	}
 
-	public String getVendorPhoneNumbr() {
-		return vendorPhoneNumbr;
+	public String getVendorPhoneNumber() {
+		return vendorPhoneNumber;
 	}
 
-	public void setVendorPhoneNumbr(String vendorPhoneNumbr) {
-		this.vendorPhoneNumbr = vendorPhoneNumbr;
+	public void setVendorPhoneNumber(String vendorPhoneNumber) {
+		this.vendorPhoneNumber = vendorPhoneNumber;
+	}
+
+	public List<Rating> getRating() {
+		return rating;
+	}
+
+	public void setRating(List<Rating> rating) {
+		this.rating = rating;
 	}
 }

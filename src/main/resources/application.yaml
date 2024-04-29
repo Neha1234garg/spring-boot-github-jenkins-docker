@@ -3,11 +3,16 @@ spring:
     url: jdbc:mysql://localhost:3306/cloud_vendor?useSSL=false
     username: root
     password: password
-
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+#logging:
+#  level:
+#    com.neha.springbootgithubjenkinsdocker.controller: DEBUG
+
+
 
   #JPA Settings
   jpa.hibernate.ddl-auto: create
@@ -22,3 +27,10 @@ management:
   endpoint:
     health:
       show-details: always
+server:
+  port: 1234
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9095/eureka/

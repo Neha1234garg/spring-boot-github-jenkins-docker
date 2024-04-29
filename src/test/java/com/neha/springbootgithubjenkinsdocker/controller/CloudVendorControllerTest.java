@@ -50,7 +50,7 @@ class CloudVendorControllerTest {
 	void testGetCloudVendorDetails() throws Exception {
 		when(cloudVendorService.getCloudVendor("id1"))
 				.thenReturn(cloudVendor1);
-		this.mockMvc.perform(get("/cloudvendor/"+"id1"))
+		this.mockMvc.perform(get("/cloudVendor/"+"id1"))
 				.andDo(print()).andExpect(status().isOk());
 	}
 
@@ -58,7 +58,7 @@ class CloudVendorControllerTest {
 	void testGetAllCloudVendorDetails() throws Exception {
 		when(cloudVendorService.getAllCloudVendors())
 				.thenReturn(cloudVendorList);
-		this.mockMvc.perform(get("/cloudvendor"))
+		this.mockMvc.perform(get("/cloudVendor"))
 				.andDo(print()).andExpect(status().isOk());
 	}
 
@@ -72,7 +72,7 @@ class CloudVendorControllerTest {
 
 		when(cloudVendorService.createCloudVendor(cloudVendor1))
 				.thenReturn("Cloud Vendor created Successfully");
-		this.mockMvc.perform(post("/cloudvendor")
+		this.mockMvc.perform(post("/cloudVendor")
 				.contentType(MediaType.APPLICATION_JSON)
 						.content(requestJson))
 				.andDo(print()).andExpect(status().isOk());
@@ -87,7 +87,7 @@ class CloudVendorControllerTest {
 
 		when(cloudVendorService.updateCloudVendor(cloudVendor1))
 				.thenReturn("Cloud Vendor Updated Successfully");
-		this.mockMvc.perform(put("/cloudvendor")
+		this.mockMvc.perform(put("/cloudVendor")
 						.contentType(MediaType.APPLICATION_JSON)
 						.content(requestJson))
 				.andDo(print()).andExpect(status().isOk());
@@ -97,7 +97,7 @@ class CloudVendorControllerTest {
 	void deleteCloudVendorDetails() throws Exception {
 		when(cloudVendorService.deleteCloudVendor("1"))
 				.thenReturn("Cloud Vendor Deleted Successfully");
-		this.mockMvc.perform(delete("/cloudvendor/" + "1"))
+		this.mockMvc.perform(delete("/cloudVendor/" + "1"))
 				.andDo(print()).andExpect(status().isOk());
 	}
 
